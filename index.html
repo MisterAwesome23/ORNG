@@ -56,7 +56,10 @@
     justify-content: center;
     gap: 14px;
     overflow: hidden;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
+  .announce span { white-space: nowrap; }
   .announce .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--bg); opacity: 0.7; flex-shrink: 0; }
   .announce strong { font-weight: 700; }
 
@@ -87,6 +90,30 @@
     transition: background .15s;
   }
   .nav-pill:hover { background: var(--accent); }
+
+  .nav-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-subscribe {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1.5px solid var(--ink);
+    transition: background .15s, border-color .15s;
+  }
+  .nav-subscribe:hover { background: var(--accent); border-color: var(--accent); }
 
   /* ========== LOGO ========== */
   .logo {
@@ -512,9 +539,13 @@
     .hero { grid-template-columns: 1fr; padding: 40px 20px 64px; gap: 48px; }
     .hero-right { min-height: 380px; }
     .footer { grid-template-columns: 1fr; padding: 40px 20px; }
-    .footer-meta { align-items: flex-start; }
+    .footer-copy { text-align: center; }
+    .footer-meta { align-items: center; text-align: center; }
     .logo-word { font-size: 28px; }
     .glass { width: 18px; height: 23px; }
+    .announce { font-size: 10px; gap: 10px; padding: 8px 12px; }
+    .nav-center { gap: 8px; }
+    .nav-subscribe { padding: 7px 12px; font-size: 9px; }
   }
 </style>
 </head>
@@ -532,20 +563,21 @@
 <nav class="nav">
   <div class="nav-left" aria-hidden="true"></div>
 
-  <!-- LOGO -->
-  <a class="logo" href="/" aria-label="ORNG — What A Boring Week">
-    <span class="logo-top">Nagpur Presents</span>
-    <span class="logo-row">
-      <span class="glass" aria-hidden="true"></span>
-      <span class="logo-word">ORNG</span>
-      <span class="glass flip" aria-hidden="true"></span>
-    </span>
-    <span class="logo-sub">What A Boring Week!</span>
-  </a>
-
-  <div class="nav-right">
-    <a class="nav-pill" href="https://what-a-boring-week.vibepreview.com/" target="_blank" rel="noopener">Subscribe &rarr;</a>
+  <div class="nav-center">
+    <!-- LOGO -->
+    <a class="logo" href="/" aria-label="ORNG — What A Boring Week">
+      <span class="logo-top">Nagpur Presents</span>
+      <span class="logo-row">
+        <span class="glass" aria-hidden="true"></span>
+        <span class="logo-word">ORNG</span>
+        <span class="glass flip" aria-hidden="true"></span>
+      </span>
+      <span class="logo-sub">What A Boring Week!</span>
+    </a>
+    <a class="nav-subscribe" href="https://what-a-boring-week.vibepreview.com/" target="_blank" rel="noopener">Subscribe &rarr;</a>
   </div>
+
+  <div class="nav-right" aria-hidden="true"></div>
 </nav>
 
 <!-- HERO -->
@@ -553,7 +585,7 @@
   <div class="hero-left">
     <div class="eyebrow">
       <span class="pulse"></span>
-      <span>A Nagpur city newsletter &middot; delivered on WhatsApp</span>
+      <span>A Nagpur city newsletter<br />Delivered on WhatsApp</span>
     </div>
 
     <h1 class="headline">
@@ -852,7 +884,7 @@
   </div>
   <div class="footer-meta">
     <span>&copy; ORNG &middot; 2026</span>
-    <span>orng.shop <span class="dot">&#9679;</span> made in nagpur</span>
+    <span>orng.shop <span class="dot">&#9679;</span> Made by Nagpur</span>
   </div>
 </footer>
 
